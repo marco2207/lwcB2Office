@@ -1,0 +1,13 @@
+<template>
+    <lightning-card
+        title="Location Status"
+        icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template if:true={locationStatus}>
+                <template for:each={locationStatus} for:item="location">
+                    <p key={location.Name}>{location.City__c}, {location.Status__c}</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

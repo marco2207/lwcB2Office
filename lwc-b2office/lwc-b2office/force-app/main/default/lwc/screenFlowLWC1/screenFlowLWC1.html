@@ -1,0 +1,109 @@
+<template>
+    <lightning-card title="Office Access Request" icon-name="standard:record">
+     <!-- Progress BAR on top of the page-->
+     <div class="slds-m-around_medium">  
+        <div class="slds-progress">
+            <ol class="slds-progress__list">
+              <li class="slds-progress__item slds-is-active">
+                <button class="slds-button slds-progress__marker">
+                  <span class="slds-assistive-text">Step 1 - Active</span>
+                </button>
+              </li>
+              <li class="slds-progress__item">
+                <button class="slds-button slds-progress__marker">
+                  <span class="slds-assistive-text">Step 2 </span>
+                </button>
+              </li>
+              <li class="slds-progress__item">
+                <button class="slds-button slds-progress__marker">
+                  <span class="slds-assistive-text">Step 3 </span>
+                </button>
+              </li>
+            </ol>
+            <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">
+              <span class="slds-progress-bar__value" style="width:0%">
+                <span class="slds-assistive-text">Progress: 0%</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Welcome text for users-->
+        <p></p>
+        <p style="text-align:center"><lightning-formatted-text value="Please complete the simple steps to gain access to your preferred office" ></lightning-formatted-text></p>
+        <p></p>
+
+        <!-- Office Location Combo-->
+        <div class="slds-m-around_medium">
+            <lightning-combobox
+                    name="progress"
+                    label="Office Location"
+                    value={value}
+                    placeholder="Select Location"
+                    options={options}
+                    onchange={handleComboChange} >
+            </lightning-combobox>
+        </div>
+
+        <!-- Date picker with date limits based on Location selected above-->
+        <div class="slds-m-around_medium">
+        <lightning-input type="date" name="input8" label="Choose Date" value="2020-09-07" min="2020-09-05" max="2020-09-22" ></lightning-input>
+        </div>
+
+        <!-- Button for slot selection -->
+        <div class="slds-m-around_medium">
+          <div class="slds-box slds-box_small">
+            <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+              <div class="slds-size_1-of-2">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small backgroundInverse">
+                  <lightning-button-stateful
+                      class="slds-m-left_x-large"
+                      label-when-off="Book Morning Slot"
+                      label-when-on="Selected Morning Slot"
+                      label-when-hover="Choose Morning Slot"
+                      icon-name-when-off="utility:add"
+                      icon-name-when-on="utility:check"
+                      icon-name-when-hover="utility:close"
+                      variant="inverse"
+                      selected={isSelected}
+                      onclick={handleButtonClick}>
+                  </lightning-button-stateful>
+                </div>
+              </div>
+              <div class="slds-size_1-of-2">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small backgroundInverse">
+                  <lightning-button-stateful
+                      class="slds-m-left_x-large"
+                      label-when-off="Book Afternoon Slot"
+                      label-when-on="Selected Afternoon Slot"
+                      label-when-hover="Choose Afternoon Slot"
+                      icon-name-when-off="utility:add"
+                      icon-name-when-on="utility:check"
+                      icon-name-when-hover="utility:close"
+                      variant="inverse"
+                      selected={isSelected}
+                      onclick={handleButtonClick}>
+                  </lightning-button-stateful>
+                </div>
+              </div>
+              <div class="slds-size_2-of-2">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small backgroundInverse">
+                  <lightning-button-stateful
+                      class="slds-m-left_x-large"
+                      label-when-off="Book Full Day Slot"
+                      label-when-on="Selected Full Day Slot"
+                      label-when-hover="Choose Full Day Slot"
+                      icon-name-when-off="utility:add"
+                      icon-name-when-on="utility:check"
+                      icon-name-when-hover="utility:close"
+                      variant="inverse"
+                      selected={isSelected}
+                      onclick={handleButtonClick}>
+                  </lightning-button-stateful>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </lightning-card>
+</template>

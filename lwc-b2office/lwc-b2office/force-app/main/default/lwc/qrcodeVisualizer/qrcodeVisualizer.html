@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Your request QR" icon-name="custom:custom19">
+        <template if:true={qrcodeimg.data}>
+            <div class="slds-m-around_medium">
+                <p style="text-align:center">
+                    <img src={qrcode} alt="Your request QRCode" />
+                </p>
+                </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title = "Location Status" icon-name = "custom:custom63"> 
+        <div class = "slds-m-around_medium"> 
+            <template if:true = {locationStatus}> 
+                <div style="height: 100px;"> 
+                    <lightning-datatable key-field="Name" 
+                                            data={locationStatus} 
+                                            columns={columns} 
+                                            hide-checkbox-column="true" 
+                                            show-row-number-column="true"> 
+                    </lightning-datatable> 
+                </div>                  
+            </template>
+            <template if:true = {error}> 
+                {error}> 
+            </template> 
+        </div> 
+    </lightning-card> 
+</template>
